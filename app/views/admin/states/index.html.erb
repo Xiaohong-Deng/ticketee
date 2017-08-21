@@ -1,0 +1,21 @@
+<header>
+  <h1>States</h1>
+  <ul class="actions">
+    <li><%= link_to "New State", new_admin_state_path, class: "new" %></li>
+  </ul>
+</header>
+
+<ul id="states">
+  <% @states.each do |state| %>
+    <li>
+      <%= render "states/state", state: state %>
+      <!-- state has a column named default of type boolean  -->
+      <!-- being of type boolean give state an extra method default? -->
+      <% if state.default? %>
+        (Default)
+      <% else %>
+        <%= link_to "Make Default", make_default_admin_state_path(state) %>
+      <% end %>
+    </li>
+  <% end %>
+</ul>

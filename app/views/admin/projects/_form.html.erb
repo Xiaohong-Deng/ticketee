@@ -1,0 +1,8 @@
+<!-- this array argument set the url to admin/projects -->
+<%= simple_form_for([:admin, project]) do |f| %>
+    <!-- simple_form provides error message displaying -->
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+    <%= f.button :submit, class: "btn-primary" %>
+<% end %>

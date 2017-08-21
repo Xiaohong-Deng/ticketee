@@ -1,0 +1,24 @@
+<!-- it will know it's a POST to ticket, you can find params[:project] and params[:ticket] -->
+<!-- in that request -->
+<%= simple_form_for([project, ticket]) do |f| %>
+<!-- simple_form infers :name and :description are text_field -->
+<!-- but :attachment need to specify it's file field -->
+  <%= f.input :name %>
+  <%= f.input :description %>
+  <%= render 'tags/form', f: f %>
+  <div id="attachments">
+    <h3>Attachments</h3>
+    <!-- because f and index are local vars in this view, not instance var -->
+    <!-- so pass them as f: f, index: index won't work as it does for project: @project -->
+    <!-- they must be put into locals hash -->
+    <%= render partial: "attachments/form", locals: { f: f, index: 0 } %>
+  </div>
+  <p>
+    <%= link_to("Add another file", new_attachment_path, remote: true, id: "add_file",
+        data: { params: {index: ticket.attachments.size} }) %>
+    <!-- ticket.attachments.size won't be incremented by clicking "Add another file" -->
+    <!-- because it just adds a field, not an actual attachment -->
+  </p>
+
+  <%= f.button :submit, class: "btn-primary" %>
+<% end %>

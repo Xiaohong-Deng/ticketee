@@ -1,0 +1,7 @@
+<%= simple_form_for(project) do |f| %>
+    <!-- simple_form provides error message displaying -->
+    <%= f.input :name %>
+    <%= f.input :description %>
+
+    <%= f.button :submit, class: "btn-primary" %>
+<% end %>

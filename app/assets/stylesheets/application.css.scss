@@ -1,0 +1,166 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import "bootstrap-sprockets";
+@import "bootstrap";
+@import "font-awesome";
+@import "projects";
+@import "tickets";
+@import "admin/application";
+@import "admin/users";
+@import "responsive";
+
+// this attributes block was supposed to be in "tickets.scss"
+// but the two @extend didn't work without importing "bootstrap"
+// to "tickets.scss". importing bootstrap once more there causes
+// testing run much slower. So I put them here
+#attributes {
+  @extend .table;
+  @extend .table-condensed;
+}
+
+// ,roles is supposed to be in users.scss
+.roles {
+  @extend .table;
+  @extend .form-horizontal;
+
+  label {
+    @extend .control-label;
+  }
+
+  select {
+    @extend .form-control;
+  }
+}
+// .state is supposed to be in tickets.scss
+.state {
+  @extend .label;
+}
+
+.watch, .unwatch {
+  @extend .btn;
+  @extend .btn-xs;
+}
+
+.watch {
+  @extend .btn-success;
+
+  &:before {
+    @extend .fa-eye;
+  }
+}
+
+.unwatch {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-eye-slash;
+  }
+}
+
+// .tag should be in ticket.scss
+.tag {
+  @extend .state;
+  @extend .label-info;
+
+  a {
+    &.remove {
+      @extend .fa-close;
+    }
+  }
+}
+
+.page-header {
+  position: relative;
+  padding-bottom: 0px;
+  &:first-child {
+    margin-top: 20px;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    max-width: 55%;
+  }
+}
+
+#tickets li, #states li {
+  padding-bottom: 10px;
+}
+
+ul.actions {
+  @extend .list-unstyled;
+  @extend .list-inline;
+}
+
+a.new, a.edit, a.delete {
+  @extend .btn;
+
+  &:before {
+    font-family: "FontAwesome";
+    padding-right: 0.5em;
+  }
+}
+
+a.new {
+  @extend .btn-success;
+
+  &:before {
+    @extend .fa-plus;
+  }
+}
+
+a.edit {
+  @extend .btn-primary;
+
+  &:before {
+    @extend .fa-pencil;
+  }
+}
+
+a.delete {
+  @extend .btn-danger;
+
+  &:before {
+    @extend .fa-trash;
+  }
+}
+
+header {
+  @extend .page-header;
+  position: relative;
+  padding-bottom: 0px;
+
+  &:first-child {
+    margin-top: 20px;
+  }
+}
+
+.alert-alert {
+  @extend .alert-danger;
+}
+
+.alert-notice {
+  @extend .alert-success;
+}
+
+form {
+  max-width: 500px;
+}
+
+body {
+  padding-top: 70px;
+}
+
+@media(max-width: 500px) {
+  p { color: red }
+}

@@ -1,0 +1,18 @@
+<header>
+  <h1>Users</h1>
+  <ul class="actions">
+    <li>
+      <%= link_to("New User", new_admin_user_path, class: "new") %>
+    </li>
+  </ul>
+</header>
+
+<ul>
+  <% @users.each do |user| %>
+  <!-- when using Symbol in the route for link_to, it serves as a literal -->
+  <!-- here it's admin_user_path(user) and admin/users/:id -->
+    <li><%= link_to(user, [:admin, user]) %></li>
+    <!-- providing User object as text forces it to call to_s -->
+    <!-- on that object -->
+  <% end %>
+</ul>
