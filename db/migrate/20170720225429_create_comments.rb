@@ -8,6 +8,6 @@ class CreateComments < ActiveRecord::Migration
       t.timestamps null: false
     end
     add_foreign_key :comments, :tickets
-    add_foreign_key :comments, :users, column: :authors_id
+    add_foreign_key :comments, :users, column: :author_id
   end
 end
