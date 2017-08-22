@@ -2,5 +2,12 @@ language: ruby
 rvm: 2.3.1
 script: bundle exec rspec
 before_install:
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
+- export DISPLAY=:99.0
+- sh -e /etc/init.d/xvfb start
+deploy:
+  provider: heroku
+  api_key:
+    secure: kX7iRL+baXjjt8sTaI8eIQHjBEoGgjtcT+bEpHaMhTExi+oq6ntnfE5ok7CechpxFf1fwkySwORK43nKVRn4ByVMImF0NzzZ9l+bVU5jV8Wn8i0fMENe4Ft1OpAgR4U+CBPFgIxE6jvgHGMkmO6iYXpAvTCHKk3nz41x70SdImJ4Sy1ez1hFIKs5JG/SkA1TzBEuv0+AY7pPuCk2mEoHV/xA2ahYzBaVURMf47VPo170xYrBOQi0m4uNzy1R3neY8rJmO4AMjP2FW/dfVZdjwWyZWGCtj2YDR04rZKvs78+N5glcre4o4eYeYs5DEgY89N2foQGfxNYkRHqE5hVgZfIeBCKZM0OQIrNNnvf4k3TbcHcXGcsVHdeOVaBjIX5U+FSdZFjAYVhMr3NotbKFYZ5O0VXZ/PCurkHrcpVRUn/eQ0JAqVfQ7GCuMBWNp22MWQ84SbhkKs1tOzSKxYpUh42Yp9lPvK1mqijIY7XMJzTg5MnZOzCioaVXZl0cLbA9TNa+Pk89foUX772aAvUIek+lkV3PHFwuRxF/yaEhdQTGxKTnK2FT7TcjbOkD3j+TBjjxGof/Wh4JDBT7EgT5aAibwomKySVwp3LD54L+abFYbSmfVzaPfAK4z3tc8AEvh1c/7nBNYPmo4pu7aJIZOTgcz8v0wgFLimfhwGLS9FU=
+  app: ticket-tracking-36097
+  on:
+    repo: Xiaohong-Deng/ticketee
