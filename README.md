@@ -1,5 +1,5 @@
 ### About
-It's a project-ticket tracking system built in rails
+It's a project-ticket tracking system built in rails. It use Travis CI and Heroku for deployment.
 
 ### About ERB file in sublime
 
