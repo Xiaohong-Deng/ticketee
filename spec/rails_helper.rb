@@ -33,7 +33,7 @@ Capybara.javascript_driver = :chrome
 
 Capybara.configure do |config|
   config.default_max_wait_time = 10
-  config.default_driver = :chrome
+  config.default_driver = :rack_test
 end
 
 RSpec.configure do |config|
@@ -65,8 +65,4 @@ RSpec.configure do |config|
   config.include Devise::TestHelpers, type: :controller
   # after each test reset Warden
   config.after(type: :feature) { Warden.test_reset! }
-  config.before(:each, type: :feature) do
-    # Note (Mike Coutermarsh): Make browser huge so that no content is hidden during tests
-    Capybara.current_session.driver.browser.manage.window.resize_to(2_500, 2_500)
-  end
 end
