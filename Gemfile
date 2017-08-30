@@ -21,6 +21,7 @@ gem 'pundit', '~>0.3.0'
 gem 'searcher', github: 'radar/searcher'
 gem 'email_spec', '~> 1.6.0'
 gem 'fog', '1.36.0'
+gem 'active_model_serializers', "~> 0.9.3"
 
 gem 'carrierwave', '~>0.10.0'
 
