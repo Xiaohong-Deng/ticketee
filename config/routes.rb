@@ -17,6 +17,12 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :api do
+    resources :projects, only: [] do
+      resources :tickets
+    end
+  end
+
   devise_for :users
   root 'projects#index'
 
