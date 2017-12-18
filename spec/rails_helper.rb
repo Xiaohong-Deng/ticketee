@@ -33,7 +33,7 @@ Capybara.javascript_driver = :chrome
 
 Capybara.configure do |config|
   config.default_max_wait_time = 10
-  config.default_driver = :rack_test
+  # config.default_driver = :rack_test
 end
 
 RSpec.configure do |config|
