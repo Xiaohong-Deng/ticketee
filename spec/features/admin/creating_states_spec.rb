@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.feature "Admins can create new states for tickets" do
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(FactoryBot.create(:user, :admin))
   end
 
   scenario 'with valid details' do

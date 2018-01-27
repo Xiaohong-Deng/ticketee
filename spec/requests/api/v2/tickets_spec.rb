@@ -1,9 +1,9 @@
 require "rails_helper"
 
 describe API::V2::Tickets do
-  let(:project) { FactoryGirl.create(:project) }
-  let(:user) { FactoryGirl.create(:user) }
-  let(:ticket) { FactoryGirl.create(:ticket, project: project) }
+  let(:project) { FactoryBot.create(:project) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:ticket) { FactoryBot.create(:ticket, project: project) }
   let(:url) { "/api/v2/projects/#{project.id}/tickets/#{ticket.id}" }
   let(:headers) do
     { "HTTP_AUTHORIZATION" => "Token token=#{user.api_key}" }

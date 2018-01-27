@@ -5,11 +5,11 @@ RSpec.feature "Users can delete projects" do
   before do
     # admin is a trait if you use it creating a user
     # it'll set the user admin otherwise non-admin
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(FactoryBot.create(:user, :admin))
   end
 
   scenario "successfully" do
-    FactoryGirl.create(:project, name: "Sublime Text 3")
+    FactoryBot.create(:project, name: "Sublime Text 3")
 
     visit "/"
     click_link "Sublime Text 3"

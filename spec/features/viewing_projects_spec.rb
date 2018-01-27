@@ -1,8 +1,8 @@
 require "rails_helper"
 
 RSpec.feature 'Users can view projects' do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project, name: "Sublime Text 3") }
+  let(:user) { FactoryBot.create(:user) }
+  let(:project) { FactoryBot.create(:project, name: "Sublime Text 3") }
 
   before do
     login_as(user)
@@ -10,14 +10,14 @@ RSpec.feature 'Users can view projects' do
   end
 
   scenario 'unless they do not have permission' do
-    FactoryGirl.create(:project, name: "Hidden")
+    FactoryBot.create(:project, name: "Hidden")
 
     visit "/"
     expect(page).not_to have_content "Hidden"
   end
 
   scenario "with the project details" do
-    # FactoryGirl looks for factory named :project in folder spec/factory
+    # FactoryBot looks for factory named :project in folder spec/factory
 
     visit '/'
     click_link "Sublime Text 3"

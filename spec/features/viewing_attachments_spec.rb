@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.feature "Users can view a ticket's attached files" do
-  let(:user) { FactoryGirl.create :user }
-  let(:project) { FactoryGirl.create :project }
-  let(:ticket) { FactoryGirl.create :ticket, project: project,
+  let(:user) { FactoryBot.create :user }
+  let(:project) { FactoryBot.create :project }
+  let(:ticket) { FactoryBot.create :ticket, project: project,
     author: user }
-  let!(:attachment) { FactoryGirl.create :attachment, ticket: ticket,
+  let!(:attachment) { FactoryBot.create :attachment, ticket: ticket,
     file_to_attach: "spec/fixtures/speed.txt" }
 
   before do

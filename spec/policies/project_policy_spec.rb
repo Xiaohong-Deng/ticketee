@@ -18,8 +18,8 @@ describe ProjectPolicy do
     # ApplicationController, so has to explicitly user Pundit
     subject { Pundit.policy_scope(user, Project)}
 
-    let!(:project) { FactoryGirl.create :project }
-    let(:user) { FactoryGirl.create :user }
+    let!(:project) { FactoryBot.create :project }
+    let(:user) { FactoryBot.create :user }
 
     it 'is empty for anonymous users' do
       expect(Pundit.policy_scope(nil, Project)).to be_empty
@@ -46,8 +46,8 @@ describe ProjectPolicy do
   context "permissions" do
     subject { ProjectPolicy.new(user, project) }
 
-    let(:user) { FactoryGirl.create(:user) }
-    let(:project) { FactoryGirl.create(:project) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:project) { FactoryBot.create(:project) }
 
     context "for anonymous users" do
       let(:user) { nil }
@@ -83,7 +83,7 @@ describe ProjectPolicy do
 
     context 'for managers of other projects' do
       before do
-        assign_role!(user, :manager, FactoryGirl.create(:project))
+        assign_role!(user, :manager, FactoryBot.create(:project))
       end
 
       it { should_not permit_action :show }
@@ -91,7 +91,7 @@ describe ProjectPolicy do
     end
 
     context 'for administrators' do
-      let(:user) { FactoryGirl.create :user, :admin }
+      let(:user) { FactoryBot.create :user, :admin }
 
       it { should permit_action :show }
       it { should permit_action :update }
@@ -99,8 +99,8 @@ describe ProjectPolicy do
   end
 
   # permissions :show? do
-  #   let(:user) { FactoryGirl.create :user }
-  #   let(:project) { FactoryGirl.create :project }
+  #   let(:user) { FactoryBot.create :user }
+  #   let(:project) { FactoryBot.create :project }
 
   #   it "blocks anonymous users" do
   #     expect(subject).not_to permit(nil, project)
@@ -123,20 +123,20 @@ describe ProjectPolicy do
   #   end
 
   #   it 'allows administrators' do
-  #     admin = FactoryGirl.create :user, :admin
+  #     admin = FactoryBot.create :user, :admin
   #     expect(subject).to permit(admin, project)
   #   end
 
   #   it "doesn't allow users to assign to other projects" do
-  #     other_project = FactoryGirl.create :project
+  #     other_project = FactoryBot.create :project
   #     assign_role!(user, :manager, other_project)
   #     expect(subject).not_to permit(user, project)
   #   end
   # end
 
   # permissions :update? do
-  #   let(:user) { FactoryGirl.create :user }
-  #   let(:project) { FactoryGirl.create :project}
+  #   let(:user) { FactoryBot.create :user }
+  #   let(:project) { FactoryBot.create :project}
 
   #   it 'blocks anonymous users' do
   #     expect(subject).not_to permit(nil, project)
@@ -158,12 +158,12 @@ describe ProjectPolicy do
   #   end
 
   #   it 'allow administrators' do
-  #     admin = FactoryGirl.create :user, :admin
+  #     admin = FactoryBot.create :user, :admin
   #     expect(subject).to permit(admin, project)
   #   end
 
   #   it 'doesnt allow users assigned to other projects to' do
-  #     other_project = FactoryGirl.create :project
+  #     other_project = FactoryBot.create :project
   #     assign_role!(user, :manager, other_project)
   #     expect(subject).not_to permit(user, project)
   #   end

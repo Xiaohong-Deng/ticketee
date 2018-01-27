@@ -1,10 +1,10 @@
 require "rails_helper"
 
 RSpec.feature 'Admins can manage states' do
-  let!(:state) { FactoryGirl.create :state, name: "New" }
+  let!(:state) { FactoryBot.create :state, name: "New" }
 
   before do
-    login_as(FactoryGirl.create(:user, :admin))
+    login_as(FactoryBot.create(:user, :admin))
     visit admin_states_path
   end
 

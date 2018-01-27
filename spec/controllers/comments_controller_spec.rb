@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe CommentsController, type: :controller do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
   let(:project) { Project.create!(name: "Ticketee") }
   let(:state) { State.create!(name: "Hacked") }
 

@@ -3,9 +3,9 @@ require "rails_helper"
 # but RSpec would translate it to has_content?, a method defined
 # in Capybara
 RSpec.feature "Users can comment on tickets" do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project) }
-  let(:ticket) { FactoryGirl.create(:ticket, project: project, author: user) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:project) { FactoryBot.create(:project) }
+  let(:ticket) { FactoryBot.create(:ticket, project: project, author: user) }
 
   before do
     login_as(user)
@@ -31,7 +31,7 @@ RSpec.feature "Users can comment on tickets" do
   end
 
   scenario "when changing a ticket's state" do
-    FactoryGirl.create(:state, name: "Open")
+    FactoryBot.create(:state, name: "Open")
     visit project_ticket_path(project, ticket)
     fill_in "Text", with: "This is a real issue"
     select "Open", from: "State"

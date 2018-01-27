@@ -4,9 +4,9 @@ describe TicketPolicy do
   context "permissions" do
     subject { TicketPolicy.new(user, ticket) }
 
-    let(:user) { FactoryGirl.create(:user) }
-    let(:project) { FactoryGirl.create(:project) }
-    let(:ticket) { FactoryGirl.create(:ticket, project: project) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:project) { FactoryBot.create(:project) }
+    let(:ticket) { FactoryBot.create(:ticket, project: project) }
 
     context 'for anonymous users' do
       let(:user) { nil }
@@ -63,7 +63,7 @@ describe TicketPolicy do
 
     context 'for manager of other projects' do
       before do
-        assign_role!(user, :manager, FactoryGirl.create(:project))
+        assign_role!(user, :manager, FactoryBot.create(:project))
       end
 
       it { should_not permit_action :show }
@@ -75,7 +75,7 @@ describe TicketPolicy do
     end
 
     context 'for administrators' do
-      let(:user) { FactoryGirl.create(:user, :admin) }
+      let(:user) { FactoryBot.create(:user, :admin) }
 
       it { should permit_action :show }
       it { should permit_action :create }

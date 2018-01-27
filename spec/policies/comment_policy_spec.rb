@@ -5,10 +5,10 @@ RSpec.describe CommentPolicy do
     # initializer is in applications#policy
     subject { CommentPolicy.new(user, comment) }
 
-    let(:user) { FactoryGirl.create(:user) }
-    let(:project) { FactoryGirl.create(:project) }
-    let(:ticket) { FactoryGirl.create(:ticket, project: project) }
-    let(:comment) { FactoryGirl.create(:comment, ticket: ticket) }
+    let(:user) { FactoryBot.create(:user) }
+    let(:project) { FactoryBot.create(:project) }
+    let(:ticket) { FactoryBot.create(:ticket, project: project) }
+    let(:comment) { FactoryBot.create(:comment, ticket: ticket) }
 
     context 'for anonymous users' do
       let(:user) { nil }
@@ -33,7 +33,7 @@ RSpec.describe CommentPolicy do
 
     context 'for managers of other projects' do
       before do
-        assign_role!(user, :manager, FactoryGirl.create(:project))
+        assign_role!(user, :manager, FactoryBot.create(:project))
       end
       it { should_not permit_action :create }
     end
@@ -41,7 +41,7 @@ RSpec.describe CommentPolicy do
     context 'for administrators' do
       # admin is not a role, it's a boolean field of User
       # user_factory set admin to true if :admin is specified
-      let(:user) { FactoryGirl.create :user, :admin }
+      let(:user) { FactoryBot.create :user, :admin }
       it { should permit_action :create }
     end
   end

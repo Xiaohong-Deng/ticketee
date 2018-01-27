@@ -17,3 +17,9 @@
 /tmp
 uploads
 secrets.yml
+
+# Ignore idea
+/.idea
+
+# Ignore bundle gems
+/vendor/bundle

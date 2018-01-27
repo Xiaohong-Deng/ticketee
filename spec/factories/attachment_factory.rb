@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :attachment do
     # transient attributes allow you to pass in data that isn’t an attribute on the model.
     transient do

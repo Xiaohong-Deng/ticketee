@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature "Signed-in users can sign out" do
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     # method from Warden, a gem used by Devise

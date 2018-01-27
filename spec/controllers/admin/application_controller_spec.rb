@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Admin::ApplicationController, type: :controller do
 
-  let(:user) { FactoryGirl.create(:user) }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     # return nil on authenticate_user! call

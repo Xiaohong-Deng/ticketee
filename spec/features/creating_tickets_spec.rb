@@ -1,12 +1,12 @@
 require "rails_helper"
 
 RSpec.feature 'Users can create new tickets' do
-  let!(:state) { FactoryGirl.create :state, name: "New", default: true }
-  let(:user) { FactoryGirl.create(:user) }
+  let!(:state) { FactoryBot.create :state, name: "New", default: true }
+  let(:user) { FactoryBot.create(:user) }
 
   before do
     login_as(user)
-    project = FactoryGirl.create(:project, name: "Internet Explorer")
+    project = FactoryBot.create(:project, name: "Internet Explorer")
     assign_role!(user, :manager, project)
 
     visit project_path(project)

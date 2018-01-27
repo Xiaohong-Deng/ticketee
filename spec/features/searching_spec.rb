@@ -1,19 +1,19 @@
 require "rails_helper"
 
 RSpec.feature 'User can search for tickets matching specific criteria' do
-  let(:user) { FactoryGirl.create(:user) }
-  let(:project) { FactoryGirl.create(:project) }
+  let(:user) { FactoryBot.create(:user) }
+  let(:project) { FactoryBot.create(:project) }
   let(:open) { State.create(name: "Open", default: true) }
   let(:closed) { State.create(name: "Closed") }
 
   let!(:ticket_1) do
-    FactoryGirl.create(:ticket, name: "Create projects",
+    FactoryBot.create(:ticket, name: "Create projects",
       project: project, author: user, tag_names: "iteration_1",
       state: open)
   end
 
   let!(:ticket_2) do
-    FactoryGirl.create(:ticket, name: "Create users",
+    FactoryBot.create(:ticket, name: "Create users",
       project: project, author: user, tag_names: "iteration_2",
       state: closed)
   end

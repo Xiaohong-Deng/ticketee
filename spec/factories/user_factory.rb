@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :user do
     # sequence behaves like this
     # in the first scenario, call user 10 times in a row

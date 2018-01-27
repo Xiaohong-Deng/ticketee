@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby "2.3.1"
+ruby "2.4.1"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 4.2.0'
@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'bootstrap-sass', '~> 3.3'
 gem 'font-awesome-rails', '~> 4.3'
-gem 'simple_form', '~> 3.1.0'
+gem 'simple_form', '~> 3.5.0'
 gem 'devise', '~> 3.4.1'
 gem 'pundit', '~>0.3.0'
 gem 'searcher', github: 'radar/searcher'
@@ -45,6 +45,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
+  gem 'teaspoon-jasmine'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
   # Use sqlite3 as the database for Active Record
@@ -62,7 +63,7 @@ end
 
 group :test do
   gem 'capybara', '~> 2.4'
-  gem 'factory_girl_rails', '~> 4.5'
+  gem 'factory_bot_rails', '~> 4.8'
   gem 'selenium-webdriver', '3.8.0'
   gem 'database_cleaner', '~> 1.4'
   gem 'chromedriver-helper'

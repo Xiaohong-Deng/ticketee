@@ -2,9 +2,9 @@ require "rails_helper"
 
 RSpec.feature 'Users can edit existing tickets' do
   # define methods named project and ticket
-  let(:project) { FactoryGirl.create(:project) }
-  let(:author) { FactoryGirl.create(:user) }
-  let(:ticket) { FactoryGirl.create(:ticket, project: project, author: author) }
+  let(:project) { FactoryBot.create(:project) }
+  let(:author) { FactoryBot.create(:user) }
+  let(:ticket) { FactoryBot.create(:ticket, project: project, author: author) }
 
   before do
     assign_role!(author, :editor, project)

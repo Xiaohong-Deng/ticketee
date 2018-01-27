@@ -1,7 +1,7 @@
 require "rails_helper"
 
 RSpec.feature 'Admins can create new users' do
-  let(:admin) { FactoryGirl.create(:user, :admin) }
+  let(:admin) { FactoryBot.create(:user, :admin) }
 
   before do
     login_as(admin)

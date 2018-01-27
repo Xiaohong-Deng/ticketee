@@ -1,11 +1,11 @@
 require "rails_helper"
 
 RSpec.feature 'users can receive notifications about tickets' do
-  let(:alice) { FactoryGirl.create(:user, email: "alice@example.com") }
-  let(:bob) { FactoryGirl.create(:user, email: "bob@example.com") }
-  let(:project) { FactoryGirl.create(:project) }
+  let(:alice) { FactoryBot.create(:user, email: "alice@example.com") }
+  let(:bob) { FactoryBot.create(:user, email: "bob@example.com") }
+  let(:project) { FactoryBot.create(:project) }
   let(:ticket) do
-    FactoryGirl.create(:ticket, project: project, author: alice)
+    FactoryBot.create(:ticket, project: project, author: alice)
   end
 
   before do

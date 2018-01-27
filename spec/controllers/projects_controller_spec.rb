@@ -19,7 +19,7 @@ RSpec.describe ProjectsController, type: :controller do
     # on that object
     allow(controller).to receive(:current_user)
 
-    project = FactoryGirl.create(:project)
+    project = FactoryBot.create(:project)
     # current_user returns nil, show? returns false
     # NotAuthorizedError raised
     get :show, id: project

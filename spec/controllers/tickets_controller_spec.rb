@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe TicketsController, type: :controller do
-  let(:project) { FactoryGirl.create(:project) }
-  let(:user) { FactoryGirl.create(:user) }
+  let(:project) { FactoryBot.create(:project) }
+  let(:user) { FactoryBot.create(:user) }
 
   before :each do
     assign_role!(user, :editor, project)
