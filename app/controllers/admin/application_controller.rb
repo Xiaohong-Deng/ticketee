@@ -8,7 +8,7 @@ class Admin::ApplicationController < ApplicationController
     def authorize_admin!
       # provided by Devise, ensure user is logged in
       # otherwise redirect to sign in page
-      # the difference between it and user_sign_in?
+      # the difference between it and user_signed_in?
       # is this uses warden.authenticate! and the other
       # uses warden.authenticate
       authenticate_user!
